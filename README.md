@@ -71,6 +71,10 @@ The following SQL queries were developed to answer specific business questions:
 
 1. **Query to retrieve all columns for sales made on '2022-11-05**:
 ```sql
+SELECT COUNT(*)
+FROM retail_sales
+WHERE sale_date = '2022-11-05';
+
 SELECT *
 FROM retail_sales
 WHERE sale_date = '2022-11-05';
@@ -78,8 +82,7 @@ WHERE sale_date = '2022-11-05';
 
 2. **SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**:
 ```sql
-SELECT 
-  *
+SELECT *
 FROM retail_sales
 WHERE 
     category = 'Clothing'
@@ -87,6 +90,17 @@ WHERE
     TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
     AND
     quantity >= 4
+
+
+SELECT *
+FROM retail_sales
+WHERE
+    category = 'Clothing'
+    AND
+    sale_date BETWEEN '2022-11-01' AND '2022-11-30'
+    AND 
+    quantity >= 4;
+
 ```
 
 3. **Query to calculate the total sales (total_sale) for each category.**:
